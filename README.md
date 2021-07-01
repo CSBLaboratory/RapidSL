@@ -8,7 +8,7 @@ The following tools are needed to use RapidSL for finding synthetic lethal sets:
 
 ### Rapid-SL overview:
 
-![alt text](https://github.com/CSBLaboratory/Rapid-SL/blob/main/RapidSL_abstract_flowchart.png?raw=true)
+![alt text](https://github.com/CSBLaboratory/RapidSL/blob/main/RapidSL_abstract_flowchart.png)
 
 
 ### To get the synthetic lethal sets follow the steps below:
