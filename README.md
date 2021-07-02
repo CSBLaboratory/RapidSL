@@ -29,7 +29,7 @@ model = changeRxnBounds(model, 'EX_o2(e)', -20, 'l');
 ```
 
 
-##### Based on the type of lethality analysis, specify the list of reactions or genes to be ignored (if exists). For example, use "findExcRxns" function from COBRA toolbox to exclude exchange reactions from the analysis:
+##### Based on the type of lethality analysis, specify the list of reactions or genes to be ignored (if exists). For example, use `findExcRxns` function from COBRA toolbox to exclude exchange reactions from the analysis:
 ``` 
 eliList = model.rxns(findExcRxns(model));
 ```
@@ -44,7 +44,7 @@ MaxCardinality = 3;
 cutOff = [];
 ```
 
-##### Choose the type of analysis. Use 'Rxn' for obtaining synthetic lethal reactions and 'Gene' for synthetic lethal genes. Passing the analysis mode to the RapidSL function is optional. If no variable is specified, the analysis will be run for finding synthetic lethal reactions:
+##### Choose the type of analysis. Use `Rxn` for obtaining synthetic lethal reactions and `Gene` for synthetic lethal genes. Passing the analysis mode to the RapidSL function is optional. If no variable is specified, the analysis will be run for finding synthetic lethal reactions:
 ```
 Mode = 'Rxn';
 ```
