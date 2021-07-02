@@ -44,7 +44,7 @@ MaxCardinality = 3;
 cutOff = [];
 ```
 
-##### Choose the type of the analysis. Use 'Rxn' for obtaining synthetic lethal reactions and 'Gene' for synthetic lethal genes. Passing the analysis mode to the RapidSL function is optional. If no variable is specified, the analysis will be run for finding synthetic lethal reactions:
+##### Choose the type of analysis. Use 'Rxn' for obtaining synthetic lethal reactions and 'Gene' for synthetic lethal genes. Passing the analysis mode to the RapidSL function is optional. If no variable is specified, the analysis will be run for finding synthetic lethal reactions:
 ```
 Mode = 'Rxn';
 ```
