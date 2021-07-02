@@ -29,7 +29,7 @@ model = changeRxnBounds(model, 'EX_o2(e)', -20, 'l');
 ```
 
 
-##### Specify the list of reactions to be ignored for lethality analysis (if exists). For example, use "findExcRxns" function from COBRA toolbox to exclude exchange reactions from the analysis:
+##### Based on the type of lethality analysis, specify the list of reactions or genes to be ignored (if exists). For example, use "findExcRxns" function from COBRA toolbox to exclude exchange reactions from the analysis:
 ``` 
 eliList = model.rxns(findExcRxns(model));
 ```
@@ -39,16 +39,21 @@ eliList = model.rxns(findExcRxns(model));
 MaxCardinality = 3;
 ```
 
-##### Specify the cutoff-ratio (set it to an empty matrix to use the default value of 1% of the maximum growth-rate of the wild-type strain):
+##### Specify the cutoff-ratio. Set it to an empty matrix to use the default value of 1% of the maximum growth-rate of the wild-type strain:
 ```
 cutOff = [];
 ```
 
+##### Choose the type of the analysis. Use 'Rxn' for obtaining synthetic lethal reactions and 'Gene' for synthetic lethal genes. Passing the analysis mode to the RapidSL function is optional. If no variable is specified, the analysis will be run for finding synthetic lethal reactions:
+```
+Mode = 'Rxn';
+```
+
 ##### Pass the inputs to Rapid-SL:
 ```
-LethalSets = RapidSLOuterLoop(model, MaxCardinality, cutOff, eliList)
+LethalSets = RapidSL(model, MaxCardinality, cutOff, eliList, Mode)
 ```
 
 ### Citing Rapid-SL
 If you use Rapid-SL in your work, please cite:
-> Manshadi et al.,"Rapid-SL: An efficient implementation of Fast-SL to identify higher order synthetic lethals", in prepration.
+> Manshadi et al.,"Rapid-SL: An efficient implementation of Fast-SL to identify higher order synthetic lethals", in preparation.
