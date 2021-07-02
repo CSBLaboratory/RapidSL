@@ -29,8 +29,7 @@ model = changeRxnBounds(model, 'EX_o2(e)', -20, 'l');
 ```
 
 
-##### Specify the list of reactions to be ignored for lethality analysis (if exists). For example, use "findExcRxns" function
-from COBRA toolbox to exclude exchange reactions from the analysis:
+##### Specify the list of reactions to be ignored for lethality analysis (if exists). For example, use "findExcRxns" function from COBRA toolbox to exclude exchange reactions from the analysis:
 ``` 
 eliList = model.rxns(findExcRxns(model));
 ```
