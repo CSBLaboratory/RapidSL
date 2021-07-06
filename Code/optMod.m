@@ -25,7 +25,7 @@ function [sol, Flux] = optMod(cplxModel, rxnIDs, model, rhs)
 %                     growth rate of the strain.
 %
 % .. Author:
-%       - Mehdi Dehghan Manshadi 06/2018 based on github.com/RamanLab/FastSL
+%       - Mehdi Dehghan Manshadi 07/2021 based on github.com/RamanLab/FastSL
 
 
 if exist('rhs', 'var')
