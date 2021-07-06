@@ -33,7 +33,7 @@ function [lethalSets, nonLethalSets, growthRates, LPSolved] = SearchWithinSeedSp
 %    LPSolved:        Number of linear programming problems solved.
 %
 % .. Author:
-%       - Mehdi Dehghan Manshadi 06/2018
+%       - Mehdi Dehghan Manshadi 07/2021
 
 if (nargin < 5) || isempty(Mode)
     Mode = 'Rxn';
