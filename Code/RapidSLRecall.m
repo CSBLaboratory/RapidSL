@@ -30,7 +30,7 @@ function [LethalSets, LPSolved] = RapidSLRecall...
 %    LPSolved:        Number of linear programming problems solved.
 %
 % .. Author:
-%       - Mehdi Dehghan Manshadi 06/2018
+%       - Mehdi Dehghan Manshadi 07/2021
 
 %% Preparing the Cplex models
 % buildCplexModel and buildCplexModelMinNorm is not used here to prevent
