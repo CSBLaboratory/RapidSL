@@ -31,7 +31,7 @@ function [LethalSets, LPSolved] = RapidSL...
 %    LPSolved:        Number of linear programing problems solved.
 %
 % .. Author:
-%       - Mehdi Dehghan Manshadi 06/2018
+%       - Mehdi Dehghan Manshadi 07/2021
 
 if nargin < 4
     eliListIDs = [];
