@@ -33,6 +33,8 @@ function [LethalSets, LPSolved] = RapidSLRecall...
 %       - Mehdi Dehghan Manshadi 06/2018
 
 %% Preparing the Cplex models
+% buildCplexModel and buildCplexModelMinNorm is not used here to prevent
+% the unnecessary computations. However, these functions can be used here. 
 cplxModel.Model.lb = model.lb;
 cplxModel.Model.ub = model.ub;
 cplxModelL1Norm.Model.lhs(end) = grRateMS;
@@ -46,17 +48,17 @@ Flux = Sol.x(1 : length(model.rxns));
 Jnz = find(~eq(Flux, 0))';
 if strcmp(Mode, 'Rxn')
     Jnz = setdiff(Jnz, eliList);
-    targetList = Jnz;
+    SeedSpace = Jnz;
 elseif strcmp(Mode, 'Gene')
     [~, Gnz] = find(model.rxnGeneMat(Jnz, :));
     Gnz = setdiff(Gnz, eliList);
     Gnz = unique(Gnz');
-    targetList = Gnz;
+    SeedSpace = Gnz;
 end
 
 %% Second Step: Searching Within the Seed Space
-if ~isempty(targetList)
-    [LethalSets, NonLethalSets, GrowthRates, LPSolved1] = SearchWithinSeedSpaceRecall(model, maxCardinality, targetList, cutOff, Mode, cplxModel, grRateMS);
+if ~isempty(SeedSpace)
+    [LethalSets, NonLethalSets, GrowthRates, LPSolved1] = SearchWithinSeedSpaceRecall(model, maxCardinality, SeedSpace, cutOff, Mode, cplxModel, grRateMS);
     % Branching of the DFS
     NoCases = zeros(1, maxCardinality - 1);
     if maxCardinality > 1

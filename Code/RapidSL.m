@@ -55,7 +55,7 @@ end
 Jnz = find(~eq(Flux, 0))';
 if strcmp(Mode, 'Rxn')
     Jnz = setdiff(Jnz, eliListIDs);
-    targetList = Jnz;
+    SeedSpace = Jnz;
     Gnz = [];
     formatSpec = 'Number of flux-carrying reactions in the WT strain: %.0f... \n\n';
     fprintf(formatSpec, length(Jnz))
@@ -63,7 +63,7 @@ elseif strcmp(Mode, 'Gene')
     [~, Gnz] = find(model.rxnGeneMat(Jnz, :));
     Gnz = setdiff(Gnz, eliListIDs);
     Gnz = unique(Gnz');
-    targetList = Gnz;
+    SeedSpace = Gnz;
     Jnz = [];
     formatSpec = 'Number of genes that code flux-carrying reactions in the WT strain: %.0f... \n\n';
     fprintf(formatSpec, length(Gnz))
@@ -71,7 +71,7 @@ end
 %% Second Step: Searching Within the Seed Space
 formatSpec = 'Identification of the root nodes... \n';
 fprintf(formatSpec)
-[LethalSetsIdx, NonLethalSets, GrowthRates, LPSolved1] = SearchWithinSeedSpace(model, maxCardinality, targetList, cutOff, Mode, cplxModel, grRateWT);
+[LethalSetsIdx, NonLethalSets, GrowthRates, LPSolved1] = SearchWithinSeedSpace(model, maxCardinality, SeedSpace, cutOff, Mode, cplxModel, grRateWT);
 %% Repeating Step 1&2 using the DFS algorithm
 NoCases = zeros(1, maxCardinality - 1);
 for i = 1 : maxCardinality - 1
