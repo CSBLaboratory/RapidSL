@@ -14,7 +14,7 @@ function [cplxModel, grRate] = buildCplexModel(model)
 %    grRate:          Maximum growth rate of the strain
 %
 % .. Author:
-%       - Mehdi Dehghan Manshadi 06/2018 based on github.com/RamanLab/FastSL
+%       - Mehdi Dehghan Manshadi 07/2021 based on github.com/RamanLab/FastSL
 
 cplxModel = Cplex();
 cplxModel.DisplayFunc = [];
