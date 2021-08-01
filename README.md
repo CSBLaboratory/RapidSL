@@ -56,4 +56,4 @@ LethalSets = RapidSL(model, MaxCardinality, cutOff, eliList, Mode)
 
 ### Citing Rapid-SL
 If you use Rapid-SL in your work, please cite:
-> Manshadi et al.,"Rapid-SL: An efficient implementation of Fast-SL to identify higher order synthetic lethals", in preparation.
+> Manshadi et al.,"Rapid-SL: identification of higher order synthetic lethal sets with an arbitrary cardinality", in preparation.
