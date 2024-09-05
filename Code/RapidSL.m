@@ -36,7 +36,11 @@ function [LethalSets, LPSolved] = RapidSL...
 if nargin < 4
     eliListIDs = [];
 elseif nargin >= 4
-    eliListIDs = findRxnIDs(model, eliList)';
+    if exist('Mode', 'var') && strcmp(Mode, 'Rxn')
+        eliListIDs = findRxnIDs(model, eliList)';
+    elseif exist('Mode', 'var') && strcmp(Mode, 'Gene')
+        eliListIDs = findGeneIDs(model, eliList)';
+    end
 end
 
 if ~exist('Mode', 'var') || isempty(Mode)
@@ -50,6 +54,8 @@ fprintf(formatSpec)
 
 if nargin == 2 || isempty(cutOff)
     cutOff = 0.01*grRateWT;
+elseif ~isempty(cutOff)
+    cutOff = cutOff*grRateWT;
 end
 
 Jnz = find(~eq(Flux, 0))';
@@ -89,7 +95,7 @@ formatSpec = 'Root nodes were identified. The number of root nodes: %.0f... \n\n
 fprintf(formatSpec, sum(NoCases))
 formatSpec = 'Brancing is started... \n';
 fprintf(formatSpec)
-parfor p = 1 : sum(NoCases)
+for p = 1 : sum(NoCases)
     s = find(p <= totalNoCases, 1);
     if s == 1
         i = p;
@@ -147,7 +153,11 @@ end
 LPSolved = {(LPSolved1 + 2); LPSolved2};
 LethalSets = cell(maxCardinality, 1);
 for i = 1 : maxCardinality
-    LethalSets{i} = model.rxns(LethalSetsIdx{i});
+    if strcmp(Mode, 'Rxn')%%%
+        LethalSets{i} = model.rxns(LethalSetsIdx{i});
+    elseif strcmp(Mode, 'Gene')%%%
+        LethalSets{i} = model.genes(LethalSetsIdx{i}); %%%
+    end
 end
 formatSpec = 'Analysis is completed. Total LPs solved: %.0f! \n';
 fprintf(formatSpec, sum(LPSolved{2}) + LPSolved{1})
