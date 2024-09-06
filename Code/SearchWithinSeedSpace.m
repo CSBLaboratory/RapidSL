@@ -80,7 +80,7 @@ for Stu = StuStart : min(maxCardinality, length(targetList))
     lethalSetIndx = zeros(nTotalPairs, 1);
     isNonLethalSet = zeros(nTotalPairs, 1);
     grRateMS = zeros(nTotalPairs, 1); % maximum growth rate of the mutant strains.
-    for targetSet = Start : nTotalPairs
+    parfor targetSet = Start : nTotalPairs
         if strcmp(Mode, 'Rxn')
             constrainedRxns = Combination(targetSet, :);
         elseif strcmp(Mode, 'Gene')
