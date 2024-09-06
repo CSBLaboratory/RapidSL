@@ -95,7 +95,7 @@ formatSpec = 'Root nodes were identified. The number of root nodes: %.0f... \n\n
 fprintf(formatSpec, sum(NoCases))
 formatSpec = 'Brancing is started... \n';
 fprintf(formatSpec)
-for p = 1 : sum(NoCases)
+parfor p = 1 : sum(NoCases)
     s = find(p <= totalNoCases, 1);
     if s == 1
         i = p;
